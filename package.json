@@ -1,7 +1,7 @@
 {
   "name": "quorra",
   "version": "0.0.1",
-  "description": "tetrahedral and hexagonal isometric grid placement engine",
+  "description": "quadrilaterial and hexagonal isometric grid placement engine",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -16,6 +16,9 @@
   "keywords": [
     "hexagon",
     "hexagonal",
+    "square",
+    "diamond",
+    "quadrilaterial",
     "isometric",
     "grid",
     "game",
