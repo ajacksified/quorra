@@ -8,6 +8,8 @@ grids. It is designed to be easy used with any game engine. Simply plug in a
 tile size, isometric ratio, and grid size; then recieve pixel coordinates for
 placement of objects.
 
+[Read the docs](http://www.quorra.io)
+
 I built it after not being able to find a non-commercial javascript hex-grid
 library after lots of searching. Let's build something awesome and open-source.
 
@@ -49,6 +51,8 @@ var housePosition = hexGrid.place(2, 1, {
 // houseposition = { x : 144,  y: 16 }
 
 ```
+
+Read the full API docs 
 
 Contributing
 ------------
