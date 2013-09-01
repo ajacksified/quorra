@@ -11,6 +11,45 @@ placement of objects.
 I built it after not being able to find a non-commercial javascript hex-grid
 library after lots of searching. Let's build something awesome and open-source.
 
+Use
+---
+
+quorra works in both Node.js and browser environments. quorra is fully
+supported by browserify, or else will attach to the window.
+
+```html
+<script src='quorra.min.js'></script>
+```
+
+or
+
+```javascript
+var quorra = require('quorra');
+```
+
+```javascript
+var hexGrid = new quorra.Hexagonal({
+  height: 64,
+  width: 64
+});
+
+// Get position of item on grid
+var position = hexGrid.place(2, 1);
+// position = { x : 128,  y: 0 }
+
+// Get position of item on grid that has a custom size, so we can place
+non-standard elements in the center of a tile
+var housePosition = hexGrid.place(2, 1, {
+  height: 32,
+  width: 32
+
+  // xOffset: 0,
+  // yOffset: 0
+});
+// houseposition = { x : 144,  y: 16 }
+
+```
+
 Contributing
 ------------
 
