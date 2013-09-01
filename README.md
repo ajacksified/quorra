@@ -5,8 +5,7 @@ quorra
 
 quorra is an isometric grid engine that works with quadrilaterial and hexagonal
 grids. It is designed to be easy used with any game engine. Simply plug in a
-tile size, isometric ratio, and grid size; then recieve pixel coordinates for
-placement of objects.
+tile size, then recieve pixel coordinates for placement of objects.
 
 [Read the docs](http://www.quorra.io)
 
