@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "npm test"
+    "test": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- ./test --recursive",
+    "watch": "grunt watch-build"
   },
   "repository": {
     "type": "git",
@@ -32,16 +33,18 @@
   "dependencies": {
   },
   "devDependencies": {
-    "mocha": "1.12.0",
-    "chai": "1.7.2",
-    "sinon-chai": "2.4.0",
-    "sinon": "1.7.3",
-    "istanbul": "~0.1.10"
+    "mocha": "~1.12.0",
+    "chai": "~1.7.2",
+    "sinon-chai": "~2.4.0",
+    "sinon": "~1.7.3",
+    "istanbul": "~0.1.10",
 
     "grunt-browserify": "~1.2.1",
     "grunt-contrib-uglify": "0.2.2",
     "grunt-contrib-watch": "~0.5.1",
     "grunt-nodemon": "~0.1.0",
-    "grunt-concurrent": "~0.3.0"
+    "grunt-concurrent": "~0.3.0",
+
+    "express": "~3.3.0"
   }
 }
