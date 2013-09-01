@@ -64,7 +64,8 @@ Testing
 -------
 
 Tests are written with [mocha](http://mochaui.com) and exist in the `./tests`
-directory. Run `npm test` to run tests.
+directory. Run `npm install` and then `npm test` from the project directory
+to run the tests.
 
 You can also view examples by running `npm run-script watch`, and opening up
 `localhost:8000` in a browser. The `watch` script will also re-build files as
