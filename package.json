@@ -1,0 +1,29 @@
+{
+  "name": "quorra",
+  "version": "0.0.1",
+  "description": "tetrahedral and hexagonal isometric grid placement engine",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajacksified/quorra.git"
+  },
+  "keywords": [
+    "hexagon",
+    "hexagonal",
+    "isometric",
+    "grid",
+    "game",
+    "engine"
+  ],
+  "author": "ajacksified",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajacksified/quorra/issues"
+  }
+}
