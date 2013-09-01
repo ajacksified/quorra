@@ -31,7 +31,8 @@ var quorra = require('quorra');
 ```javascript
 var hexGrid = new quorra.Hexagonal({
   height: 64,
-  width: 64
+  width: 64,
+  gridType: 'square' // defaults to 'diamond'
 });
 
 // Get position of item on grid
@@ -63,11 +64,11 @@ Testing
 -------
 
 Tests are written with [mocha](http://mochaui.com) and exist in the `./tests`
-directory.
+directory. Run `npm test` to run tests.
 
-```
-npm test
-```
+You can also view examples by running `npm run-script watch`, and opening up
+`localhost:8000` in a browser. The `watch` script will also re-build files as
+you edit them, so you can watch the visual effects to changes you make.
 
 
 License
