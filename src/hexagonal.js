@@ -13,11 +13,11 @@
 
   var Hexagonal = function(height, width, options){
     // Make sure that the required parameters are sent.
-    if(!height)
-      throw new Error("Must include height, a positive integer > 0.");
+    if(!height || height < 0)
+      throw new Error("Must include height, a positive integer.");
 
-    if(!width)
-      throw new Error("Must include width, a positive integer > 0.");
+    if(!width || width < 0)
+      throw new Error("Must include width, a positive integer.");
 
     options = options || {};
     options.rotation = options.rotation || 'pointed';
@@ -52,10 +52,10 @@
     // Make sure that the required parameters are sent.
     var xColumnOffset, yRowOffset, xRowOffset;
 
-    if(!height)
+    if(!height || height < 0)
       throw new Error("Must include height, a positive integer.");
 
-    if(!width)
+    if(!width || width < 0)
       throw new Error("Must include width, a positive integer.");
 
     if(rotation == undefined || rotation == null || !(rotation == 'flat' || rotation == 'pointed'))
