@@ -32,7 +32,12 @@ var quorra = require('quorra');
 var hexGrid = new quorra.Hexagonal({
   height: 64,
   width: 64,
-  gridType: 'square' // defaults to 'diamond'
+
+  // tilt to the right by 10 degrees
+  xTilt: 10
+
+  // tilt back by 10 degrees
+  zTilt: 10
 });
 
 // Get position of item on grid
@@ -49,7 +54,6 @@ var housePosition = hexGrid.place(2, 1, {
   // yOffset: 0
 });
 // houseposition = { x : 144,  y: 16 }
-
 ```
 
 Read the full API docs 
