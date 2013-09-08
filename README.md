@@ -4,8 +4,8 @@ quorra
 [![travis-ci status](https://secure.travis-ci.org/ajacksified/quorra.png)](http://travis-ci.org/#!/ajacksified/quorra/builds)
 
 quorra is an isometric grid engine that works with quadrilaterial and hexagonal
-grids. It is designed to be easy used with any game engine. Simply plug in a
-tile size, then recieve pixel coordinates for placement of objects.
+grids. It is designed to be easily used with any game engine. Simply plug in a
+tile size, then recieve pixel coordinates for object placement.
 
 [Read the docs](http://www.quorra.io)
 

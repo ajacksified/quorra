@@ -11,36 +11,25 @@
 !function(global){
   'use strict';
 
-  var Hexagonal = function(height, width, options){
+  var Hexagonal = function(sideLength, options){
     // Make sure that the required parameters are sent.
-    if(!height || height < 0)
-      throw new Error("Must include height, a positive integer.");
-
-    if(!width || width < 0)
-      throw new Error("Must include width, a positive integer.");
+    if(!sideLength || sideLength < 0)
+      throw new Error("Must include side length, a positive integer.");
 
     options = options || {};
     options.rotation = options.rotation || 'pointed';
-    options.xTilt = options.xTilt || 0;
-    options.yTilt = options.yTilt || 0;
 
     // Precalculate the offsets so that finding grid coordinates is simply a
     // multiplication and addition problem.
     var offsets = Hexagonal.calculateOffsets(
-                              options.height,
-                              options.width,
-                              options.rotation,
-                              options.xTilt,
-                              options.zTilt);
+                              options.sideLength,
+                              options.rotation);
 
-    // offset per column (with xTilt applied)
-    this.xColumnOffset = offsets.xColumnOffset;
+    // x position per column
+    this.xOffset = offsets.xOffset;
 
-    // y position per row (with zTilt aplied)
-    this.yRowOffset = offsets.yRowOffset;
-
-   // deal with xTilt, total offset per row
-    this.xRowOffset = offsets.xRowOffset;
+    // y position per row
+    this.yOffset = offsets.yOffset;
   };
 
   Hexagonal.prototype.place = function(){
@@ -48,29 +37,19 @@
 
   // We'll make this a static method, since it really doesn't need to be
   // instance based.
-  Hexagonal.calculateOffsets = function(height, width, rotation, xTilt, zTilt){
+  Hexagonal.calculateOffsets = function(sideLength, rotation){
     // Make sure that the required parameters are sent.
-    var xColumnOffset, yRowOffset, xRowOffset;
+    var xOffset, yOffset;
 
-    if(!height || height < 0)
-      throw new Error("Must include height, a positive integer.");
-
-    if(!width || width < 0)
-      throw new Error("Must include width, a positive integer.");
+    if(!sideLength || sideLength < 0)
+      throw new Error("Must include side length, a positive integer.");
 
     if(rotation == undefined || rotation == null || !(rotation == 'flat' || rotation == 'pointed'))
       throw new Error("Must include rotation, a string of possible values 'flat' or 'pointed'.");
 
-    if(xTilt == undefined || xTilt == null || xTilt <= -90 || xTilt >= 90)
-      throw new Error("Must include xTilt, a positive integer between -90 and 90.");
-
-    if(zTilt == undefined || zTilt == null || zTilt <= -90 || zTilt >= 90)
-      throw new Error("Must include zTilt, a positive integer. between -90 and 90.");
-
     return {
-      xColumnOffset: xColumnOffset,
-      yRowOffset: yRowOffset,
-      xRowOffset: xRowOffset
+      xOffset: xOffset,
+      yOffset: yOffset,
     };
   };
 

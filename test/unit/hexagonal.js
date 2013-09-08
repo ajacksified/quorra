@@ -26,13 +26,12 @@ describe('Hexagonal grid', function(){
       expect(Hexagonal.prototype.place).to.exist;
     });
 
-    it('should error if you do not pass in at least height and width', function(){
-      expect(function(){ new Hexagonal() }).to.throw(Error, /Must include height/);
-      expect(function(){ new Hexagonal(2) }).to.throw(Error, /Must include width/);
+    it('should error if you do not pass in at least side length', function(){
+      expect(function(){ new Hexagonal() }).to.throw(Error, /Must include side length/);
     });
 
     it('should precalculate offsets', function(){
-      var h = new Hexagonal(1, 1);
+      var h = new Hexagonal(1);
       expect(Hexagonal.calculateOffsets).calledOnce;
     });
   });
@@ -46,49 +45,12 @@ describe('Hexagonal grid', function(){
     it('should error if you do not pass in the proper parameters', function(){
       expect(function(){
         Hexagonal.calculateOffsets()
-      }).to.throw(Error, /include height/);
+      }).to.throw(Error, /include side length/);
 
       expect(function(){
         Hexagonal.calculateOffsets(-1)
-      }).to.throw(Error, /height.*a positive integer/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1)
-      }).to.throw(Error, /include width/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, -1)
-      }).to.throw(Error, /width.*a positive integer/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1)
-      }).to.throw(Error, /include rotation/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1, 'flat')
-      }).to.throw(Error, /include xTilt/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1, 'flat', -90)
-      }).to.throw(Error, /xTilt.*-90/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1, 'flat', 90)
-      }).to.throw(Error, /xTilt.* 90/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1, 'flat', 1)
-      }).to.throw(Error, /include zTilt/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1, 'flat', 0, -90)
-      }).to.throw(Error, /zTilt.*-90/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1, 'flat', 0, 90)
-      }).to.throw(Error, /zTilt.* 90/);
+      }).to.throw(Error, /side length.*a positive integer/);
     });
-
   });
 });
 
