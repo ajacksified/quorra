@@ -23,7 +23,7 @@ describe('Hexagonal grid', function(){
     it('should exist with the expected API', function(){
       expect(typeof Hexagonal).to.equal('function');
       expect(Hexagonal.calculateOffsets).to.exist;
-      expect(Hexagonal.prototype.place).to.exist;
+      expect(Hexagonal.prototype.getCoordinates).to.exist;
     });
 
     it('should error if you do not pass in at least side length', function(){

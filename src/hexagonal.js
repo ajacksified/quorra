@@ -1,9 +1,16 @@
-// This file contains the constructor for the Hexagonal grid placement
-// library. It accepts a height, width, z- and x- tilts, a rotation type
-// ('flat' or 'pointed' on top, default 'pointed'), and a numbering system
-// ('odd-r', 'even-r', 'odd-q', 'even-q', or 'axial', default: 'axial').
-// See http://www.redblobgames.com/grids/hexagons
-// In return, you can ask for the pixel placement for a given grid location.
+// This file contains the constructor for the Hexagonal grid.
+// It accepts a side length and optional options containing rotation type
+// ('flat' or 'pointed' on top, default 'pointed'), a numbering system
+// ('odd-r', 'even-r', 'odd-q', 'even-q', or 'axial', default: 'axial'),
+// and worldXOffset and worldYOffset (in case you do not want to start pixel
+// coordinates at 0,0, in case you're working with multiple grids on your
+// world at once.)
+//
+// See http://www.redblobgames.com/grids/hexagons for information on the
+// numbering system.
+//
+// The grid's primary function will be to use getCoordinates(x,y), which will
+// return to you the pixel coordinates for rendering.
 //
 // Part of quorra, an isometric grid library. github.com/ajacksified/quorra
 // MIT licensed.
@@ -35,7 +42,7 @@
     this.yOffset = offsets.yOffset;
   };
 
-  Hexagonal.prototype.place = function(){
+  Hexagonal.prototype.getCoordinates = function(){
   };
 
   // We'll make this a static method, since it really doesn't need to be
