@@ -19,6 +19,9 @@
     options = options || {};
     options.rotation = options.rotation || 'pointed';
 
+    this.worldXOffset = options.worldXOffset || 0;
+    this.worldYOffset = options.worldYOffset || 0;
+
     // Precalculate the offsets so that finding grid coordinates is simply a
     // multiplication and addition problem.
     var offsets = Hexagonal.calculateOffsets(

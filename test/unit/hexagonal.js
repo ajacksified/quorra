@@ -30,6 +30,20 @@ describe('Hexagonal grid', function(){
       expect(function(){ new Hexagonal() }).to.throw(Error, /Must include side length/);
     });
 
+    it('should set a default world offset', function(){
+      var h = new Hexagonal(10);
+      expect(h.worldXOffset).to.equal(0);
+      expect(h.worldYOffset).to.equal(0);
+    });
+
+    it('should use the world offset from options', function(){
+      var options = { worldXOffset: 128, worldYOffset: 256 };
+          h = new Hexagonal(10, options);
+
+      expect(h.worldXOffset).to.equal(options.worldXOffset);
+      expect(h.worldYOffset).to.equal(options.worldYOffset);
+    });
+
     it('should precalculate offsets', function(){
       var h = new Hexagonal(1);
       expect(Hexagonal.calculateOffsets).calledOnce;
