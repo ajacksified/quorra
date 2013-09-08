@@ -23,16 +23,29 @@ describe('Hexagonal grid', function(){
     it('should exist with the expected API', function(){
       expect(typeof Hexagonal).to.equal('function');
       expect(Hexagonal.calculateOffsets).to.exist;
-      expect(Hexagonal.prototype.place).to.exist;
+      expect(Hexagonal.prototype.getCoordinates).to.exist;
     });
 
-    it('should error if you do not pass in at least height and width', function(){
-      expect(function(){ new Hexagonal() }).to.throw(Error, /Must include height/);
-      expect(function(){ new Hexagonal(2) }).to.throw(Error, /Must include width/);
+    it('should error if you do not pass in at least side length', function(){
+      expect(function(){ new Hexagonal() }).to.throw(Error, /Must include side length/);
+    });
+
+    it('should set a default world offset', function(){
+      var h = new Hexagonal(10);
+      expect(h.worldXOffset).to.equal(0);
+      expect(h.worldYOffset).to.equal(0);
+    });
+
+    it('should use the world offset from options', function(){
+      var options = { worldXOffset: 128, worldYOffset: 256 };
+          h = new Hexagonal(10, options);
+
+      expect(h.worldXOffset).to.equal(options.worldXOffset);
+      expect(h.worldYOffset).to.equal(options.worldYOffset);
     });
 
     it('should precalculate offsets', function(){
-      var h = new Hexagonal(1, 1);
+      var h = new Hexagonal(1);
       expect(Hexagonal.calculateOffsets).calledOnce;
     });
   });
@@ -46,49 +59,12 @@ describe('Hexagonal grid', function(){
     it('should error if you do not pass in the proper parameters', function(){
       expect(function(){
         Hexagonal.calculateOffsets()
-      }).to.throw(Error, /include height/);
+      }).to.throw(Error, /include side length/);
 
       expect(function(){
         Hexagonal.calculateOffsets(-1)
-      }).to.throw(Error, /height.*a positive integer/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1)
-      }).to.throw(Error, /include width/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, -1)
-      }).to.throw(Error, /width.*a positive integer/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1)
-      }).to.throw(Error, /include rotation/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1, 'flat')
-      }).to.throw(Error, /include xTilt/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1, 'flat', -90)
-      }).to.throw(Error, /xTilt.*-90/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1, 'flat', 90)
-      }).to.throw(Error, /xTilt.* 90/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1, 'flat', 1)
-      }).to.throw(Error, /include zTilt/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1, 'flat', 0, -90)
-      }).to.throw(Error, /zTilt.*-90/);
-
-      expect(function(){
-        Hexagonal.calculateOffsets(1, 1, 'flat', 0, 90)
-      }).to.throw(Error, /zTilt.* 90/);
+      }).to.throw(Error, /side length.*a positive integer/);
     });
-
   });
 });
 
